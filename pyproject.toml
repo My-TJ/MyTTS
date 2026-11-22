@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "piper-tts-studio"
+version = "0.1.0"
+description = "Interactive Piper text-to-speech studio"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+  "piper-tts>=1.8,<2",
+  "prompt-toolkit>=3,<4",
+  "rich>=13,<14",
+]
+
+[project.scripts]
+piper-studio = "piper_tts_studio.cli:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+addopts = "-q"
+pythonpath = ["src"]
+testpaths = ["tests"]
